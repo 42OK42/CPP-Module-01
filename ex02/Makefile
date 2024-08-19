@@ -6,15 +6,15 @@
 #    By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 13:51:17 by okrahl            #+#    #+#              #
-#    Updated: 2024/04/03 16:53:50 by okrahl           ###   ########.fr        #
+#    Updated: 2024/08/19 15:02:39 by okrahl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Define the compiler
-CXX = g++
+CXX = c++
 
 # Define any compile-time flags
-CXXFLAGS = -Wall -Wextra -std=c++11
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Define any directories containing header files
 INCLUDES =
@@ -42,7 +42,7 @@ all: $(MAIN)
 # Rule to link the program - only runs if an object file is newer than the executable
 $(MAIN): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LIBS)
-	@echo Brain has been compiled
+	@echo brain has been compiled
 
 # Rule to compile the source files into object files
 .cpp.o:

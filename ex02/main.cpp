@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:47:18 by okrahl            #+#    #+#             */
-/*   Updated: 2024/04/03 16:58:21 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 15:06:47 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int main (void)
 	std::string& ref = original;
 
 	std::cout << "OriginalAdress:" << &original << "\n" << "PtrAdress: " << ptr << "\n" << "RefAdress: " << &ref << std::endl;
-	std::cout << "Original:" << original << "\n" << "Ptr: " << *ptr << "\n" << "Ref: " << ref << std::endl;
+	std::cout << "OriginalValue:" << original << "\n" << "PtrValue: " << *ptr << "\n" << "RefValue: " << ref << std::endl;
 }
