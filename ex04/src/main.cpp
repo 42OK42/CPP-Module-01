@@ -6,30 +6,30 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:17:13 by okrahl            #+#    #+#             */
-/*   Updated: 2024/04/04 18:29:27 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 12:47:21 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sed.hpp"
+#include "../incl/sed.hpp"
 
-std::string	readFromFile(std::string filename)
+std::string readFromFile(const std::string& filename)
 {
-	std::ifstream file(filename);
+	std::ifstream file(filename.c_str());
 	if (!file)
 	{
 		std::cerr << "Cannot open file: " << filename << "\n";
-		return ("");
+		return "";
 	}
 	std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 	file.close();
-	return (content);
+	return content;
 }
 
-void writeIntoNewFile(std::string content)
+void writeIntoNewFile(const std::string& content)
 {
 	std::string newFilename = "newfile.txt";
 
-	std::ofstream newFile(newFilename);
+	std::ofstream newFile(newFilename.c_str());
 	if (!newFile)
 	{
 		std::cerr << "Unable to open file: " << newFilename << std::endl;
@@ -39,26 +39,24 @@ void writeIntoNewFile(std::string content)
 	newFile.close();
 }
 
-std::string replaceOccurrences(std::string source, std::string from, std::string to)
+std::string replaceOccurrences(std::string source, const std::string& from, const std::string& to)
 {
 	size_t startPos = 0;
-	
-	while ((startPos = (source.find(from, startPos))) != std::string::npos)
+
+	while ((startPos = source.find(from, startPos)) != std::string::npos)
 	{
-		source = source.substr(0, startPos) + to + source.substr(startPos + from.length());
-		startPos += to.length(); 
+		source.replace(startPos, from.length(), to);
+		startPos += to.length();
 	}
-	return (source);
+	return source;
 }
 
-int main (int argc, char** argv)
+int main(int argc, char** argv)
 {
-	/* std::string result = replaceOccurrences("hallo meisteer was gehts dir", "was", "wie");
-	std::cout << result << std::endl; */
 	if (argc != 4)
 	{
 		std::cerr << "Usage: " << argv[0] << " <filename> <string1> <string2>\n";
-		return (-1);
+		return -1;
 	}
 	std::string filename = argv[1];
 	std::string from = argv[2];
@@ -66,7 +64,7 @@ int main (int argc, char** argv)
 	std::string content = readFromFile(filename);
 
 	if (content.empty())
-		return (-1); 
+		return -1;
 
 	std::cout << content << std::endl;
 	content = replaceOccurrences(content, from, to);
