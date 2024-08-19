@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:17:13 by okrahl            #+#    #+#             */
-/*   Updated: 2024/08/19 17:08:09 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 17:55:50 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ std::string readFromFile(const std::string& filename)
 	return content;
 }
 
-void writeIntoNewFile(const std::string& content)
+void writeIntoNewFile(const std::string& content, const std::string& filename)
 {
-	std::string newFilename = "newfile.txt";
+	std::string newFilename = filename + ".replace";
 
 	std::ofstream newFile(newFilename.c_str());
 	if (!newFile)
@@ -75,5 +75,5 @@ int main(int argc, char** argv)
 	content = replaceOccurrences(content, from, to);
 	std::cout << content << std::endl;
 
-	writeIntoNewFile(content);
+	writeIntoNewFile(content, filename);
 }
