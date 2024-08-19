@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:03:46 by okrahl            #+#    #+#             */
-/*   Updated: 2024/04/04 15:57:36 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 15:26:14 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ public:
 
 	typedef	HumanA		t;
 	
-	HumanA(std::string name, Weapon& Weapon);
+	HumanA(std::string _name, Weapon& Weapon);
 	~HumanA();
 
 	void attack(void);
 	
 private:
-	std::string name;
-	Weapon& Weaponn;
+	std::string _name;
+	Weapon& _weaponn;
 };

@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:03:54 by okrahl            #+#    #+#             */
-/*   Updated: 2024/04/03 20:23:26 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 15:23:45 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ public:
 	
 private:
 
-	std::string name;
-	Weapon* Weaponn;
+	std::string _name;
+	Weapon* _weaponn;
 };
 
 #endif
