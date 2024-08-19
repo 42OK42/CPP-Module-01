@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:17:13 by okrahl            #+#    #+#             */
-/*   Updated: 2024/08/19 12:47:21 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 17:08:09 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,17 @@
 std::string readFromFile(const std::string& filename)
 {
 	std::ifstream file(filename.c_str());
+	std::string content;
+	std::string line;
 	if (!file)
 	{
 		std::cerr << "Cannot open file: " << filename << "\n";
 		return "";
 	}
-	std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+	while (std::getline(file, line))
+		content += line + "\n";
+	if (!content.empty() && content[content.size() - 1] == '\n')
+		content.erase(content.size() - 1);
 	file.close();
 	return content;
 }
