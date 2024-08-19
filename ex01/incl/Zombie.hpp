@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:10:24 by okrahl            #+#    #+#             */
-/*   Updated: 2024/08/19 13:47:03 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 14:54:47 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 
 class Zombie
 {
@@ -27,15 +28,13 @@ public:
 	~Zombie();
 
 	void announce(void) const;
-	void setName(std::string name);
-	void setNum(int num);
+	void setName(std::string _name);
 	
 private:
-	std::string name;
-	int num;
+	std::string _name;
 	
 };
 
-	Zombie* zombieHorde( int N, std::string name );
+	Zombie* zombieHorde( int N, std::string _name );
 
 #endif
