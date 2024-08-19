@@ -10,56 +10,54 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Define the compiler
-CXX = g++
+# COLORS FOR PRINTING
+GREEN = \033[0;32m
+RESET = \033[0m
 
-# Define any compile-time flags
-CXXFLAGS = -Wall -Wextra -std=c++11
+# DIRECTORIES
+OBJ_DIR = obj
+SRC_DIR = src
 
-# Define any directories containing header files
-INCLUDES =
+# EXECUTABLE NAME
+NAME = Harl
 
-# Define any libraries to link into executable
-LIBS =
-
-# Define the source files
+# SOURCE FILES
 SRCS =	main.cpp \
 		Harl.cpp \
 
-# Define the object files
-OBJS = $(SRCS:.cpp=.o)
+# OBJECT FILES
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-# Define the dependency files
-DEPS = $(SRCS:.cpp=.d)
+# COMPILER
+CC = c++
 
-# Define the executable file
-MAIN = Harl
+# COMPILATION FLAGS
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-.PHONY: all clean fclean re
+# COMMANDS
+RM = rm -f
+MKDIR = mkdir -p
 
-# The default rule - build the main target
-all: $(MAIN)
+# DIRECTORIES
+INCL_DIR = incl
 
-# Rule to link the program - only runs if an object file is newer than the executable
-$(MAIN): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LIBS)
-	@echo Harl has been compiled
+# RULES
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@$(MKDIR) $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -I $(INCL_DIR) -c $< -o $@
 
-# Rule to compile the source files into object files
-.cpp.o:
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+all : $(NAME)
 
-# Rule to clean the workspace
-clean:
-	$(RM) *.o *~ $(DEPS)
+$(NAME) : $(OBJS)
+	@$(CC) $(CFLAGS) -I $(INCL_DIR) $^ -o $(NAME)
+	@echo "$(GREEN)./$(NAME) is ready!$(RESET)"
 
-# Rule to fully clean the workspace (including the executable)
-fclean: clean
-	$(RM) $(MAIN)
+fclean : clean
+	@$(RM) $(NAME)
 
-# Rule to re-make everything
-re: fclean all
+clean :
+	@$(RM) -r $(OBJ_DIR)
 
-# Rule to generate a file of dependencies (uses the -MM GCC flag)
-%.d: %..cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -MM $< > $@
+re : fclean all
+
+.PHONY : all clean fclean re
