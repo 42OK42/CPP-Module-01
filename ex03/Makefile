@@ -6,10 +6,10 @@
 #    By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 13:51:17 by okrahl            #+#    #+#              #
-#    Updated: 2024/04/03 18:14:32 by okrahl           ###   ########.fr        #
+#    Updated: 2024/08/19 16:24:07 by okrahl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-# COLORS FOR PRINTING
+
 GREEN = \033[0;32m
 RESET = \033[0m
 
@@ -22,9 +22,9 @@ NAME = weapon
 
 # SOURCE FILES
 SRCS = 	main.cpp \
-	   Weapon.cpp \
-	   HumanA.cpp \
-	   HumanB.cpp \
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
 
 # OBJECT FILES
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
