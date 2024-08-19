@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 17:03:41 by okrahl            #+#    #+#             */
-/*   Updated: 2024/04/04 17:14:09 by okrahl           ###   ########.fr       */
+/*   Created: 2024/04/03 17:15:52 by okrahl            #+#    #+#             */
+/*   Updated: 2024/08/19 12:38:37 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "Weapon.hpp"
+#include "../incl/Weapon.hpp"
 
-HumanA::HumanA(std::string name, Weapon& weapon): Weaponn(weapon)
+Weapon::Weapon(std::string type)
 {
-	this->name = name;
-	//this->Weaponn = new Weapon(Weapon);
+	this->type = type;
 }
 
-HumanA::~HumanA()
+Weapon::~Weapon()
 {
 	
 }
 
-void HumanA::attack(void)
+void Weapon::setType(std::string type)
 {
-	std::string	type = this->Weaponn.getType();
-	std::cout << this->name << " attacks with their " << type << std::endl;
+	//std::cout << "im setting " << type << std::endl;
+	this->type = type;
+	//std::cout << "i set " << getType() << std::endl;
+}
+
+std::string Weapon::getType(void)
+{
+	return (this->type);
 }

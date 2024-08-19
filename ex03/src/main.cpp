@@ -6,13 +6,13 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:03:57 by okrahl            #+#    #+#             */
-/*   Updated: 2024/04/04 17:08:55 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 12:38:25 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include "Weapon.hpp"
+#include "../incl/HumanA.hpp"
+#include "../incl/HumanB.hpp"
+#include "../incl/Weapon.hpp"
 
 int main()
 {
