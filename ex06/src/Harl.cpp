@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 20:11:12 by okrahl            #+#    #+#             */
-/*   Updated: 2024/08/19 12:53:53 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 17:40:43 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ void Harl::complain( std::string level )
 	for (int i = 0; i < 4; i++)
 	{
 		if (levels[i] == level)
+		{
 			(this->*funcPtr[i])();
+			return ;
+		}
 	}
-	std::cout << std::endl;
+	std::cerr << "Invalid complaint level: " << level << std::endl;
 }
 
 Harl::Harl()

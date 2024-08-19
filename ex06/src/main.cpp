@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 20:11:22 by okrahl            #+#    #+#             */
-/*   Updated: 2024/08/19 12:54:02 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 17:45:45 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char *argv[])
 
 	if (chosenLevel == -1)
 	{
+		std::cerr << "Invalid complaint level: " << str << std::endl;
 		std::cerr << "./harlFilter DEBUG, INFO, WARNING or ERROR" << std::endl;
 		return (1);
 	}
@@ -57,7 +58,6 @@ int	main(int argc, char *argv[])
 		harl.complain("ERROR");
 		break;
 	default:
-		//std::cout << "Hallo" << std::endl;
 		break;
 	}
 }
