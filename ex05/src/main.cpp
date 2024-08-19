@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 20:11:22 by okrahl            #+#    #+#             */
-/*   Updated: 2024/08/19 12:51:25 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 17:25:27 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int	main(void)
 	harl.complain("INFO");
 	harl.complain("WARNING");
 	harl.complain("ERROR");
+	harl.complain("INVALID");
 	return 0;
 }
