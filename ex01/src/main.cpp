@@ -6,21 +6,11 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 18:08:22 by okrahl            #+#    #+#             */
-/*   Updated: 2024/08/19 12:32:30 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 14:16:51 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/Zombie.hpp"
-
-void Zombie::announce(void) const
-{
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void Zombie::setName(std::string name)
-{
-	this->name = name;
-}
 
 int	main (void)
 {
@@ -29,9 +19,7 @@ int	main (void)
 
 	Zombie* horde = zombieHorde(N, name);
 	for (int i = 0; i < N; ++i)
-	{
 		horde[i].announce();
-	}
 	delete[] horde;
 	return (1);
 }

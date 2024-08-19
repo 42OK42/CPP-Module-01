@@ -6,7 +6,7 @@
 /*   By: okrahl <okrahl@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:10:24 by okrahl            #+#    #+#             */
-/*   Updated: 2024/04/02 21:46:32 by okrahl           ###   ########.fr       */
+/*   Updated: 2024/08/19 13:47:03 by okrahl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ public:
 
 	void announce(void) const;
 	void setName(std::string name);
+	void setNum(int num);
 	
 private:
 	std::string name;
+	int num;
 	
 };
 
